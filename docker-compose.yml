@@ -1,0 +1,38 @@
+version: "3"
+services: 
+   mongo: 
+      image: mongo:3.6-jessie
+      restart: always
+      ports: 
+        - "27017:27017"
+      volumes: 
+        - web_db_1:/data/db
+   mongo-express: 
+      image: mongo-express:latest
+      links: 
+        - mongo:mongo
+      ports: 
+        - "8081:8081"
+   node-express: 
+      build:
+         context: .
+         dockerfile: ./build/express/Dockerfile
+      volumes: 
+        - ./src:/home/app/src 
+        - /home/app/src/node_modules
+      links: 
+        - mongo:mongodb
+      ports:
+        - "3000:3000"
+   nginx:
+      image: nginx:alpine
+      ports:
+        - "80:80"
+      volumes:
+        - "./conf.d:/etc/nginx/conf.d"
+      links:
+        - node-express
+volumes: 
+   web_db_1: 
+      driver: local
+  
