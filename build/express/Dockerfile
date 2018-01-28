@@ -10,6 +10,7 @@ ENV HOME=/home/app
 
 # appユーザーで実行するために権限変更
 COPY ./src/package.json ./src/npm-shrinkwrap.json $HOME/src/
+# COPY ./src/package.json $HOME/src/
 RUN chown -R app:app $HOME/*
 
 USER app
