@@ -23,4 +23,4 @@ RUN npm install
 # インストール時、npmがダウンロードするtarファイルを消去
 RUN npm cache clean
 
-CMD ["node", "bin/www"]
+CMD ["npm", "start"]
