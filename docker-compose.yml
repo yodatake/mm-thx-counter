@@ -18,8 +18,8 @@ services:
          context: .
          dockerfile: ./build/express/Dockerfile
       volumes: 
-        - ./src:/home/app/src 
-        - /home/app/src/node_modules
+        - ./mm-thx-counter:/home/app/mm-thx-counter 
+        - /home/app/mm-thx-counter/node_modules
       links: 
         - mongo:mongodb
       ports:

@@ -9,13 +9,13 @@ RUN npm install --global npm@4.0.3
 ENV HOME=/home/app
 
 # appユーザーで実行するために権限変更
-COPY ./src/package.json ./src/npm-shrinkwrap.json $HOME/src/
+COPY ./mm-thx-counter/package.json ./mm-thx-counter/npm-shrinkwrap.json $HOME/mm-thx-counter/
 # COPY ./src/package.json $HOME/src/
 RUN chown -R app:app $HOME/*
 
 USER app
 
-WORKDIR $HOME/src
+WORKDIR $HOME/mm-thx-counter
 
 # install dependencies
 RUN npm install
