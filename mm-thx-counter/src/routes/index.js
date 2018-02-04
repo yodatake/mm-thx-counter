@@ -5,5 +5,10 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.send('OK', 200);
 });
+/* GET home page. */
+router.post('/', function(req, res, next) {
+  console.log(req.body);
+  res.staus(200).send('OK');
+});
 
 module.exports = router;
