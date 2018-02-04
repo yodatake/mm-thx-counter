@@ -1,5 +1,5 @@
-mm-thx-counter/src/dist
-mm-thx-counter/src/logs
-mm-thx-counter/src/npm-debug.log
-mm-thx-counter/src/node_modules
-mm-thx-counter/src/DS_Store
+mm-thx-counter/dist
+mm-thx-counter/logs
+mm-thx-counter/npm-debug.log
+mm-thx-counter/node_modules
+.DS_Store
