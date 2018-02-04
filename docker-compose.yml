@@ -12,26 +12,28 @@ services:
       links: 
         - mongo:mongo
       ports: 
-        - "8081:8081"
+        - "18081:8081"
    node-express: 
       build:
          context: .
          dockerfile: ./build/express/Dockerfile
+      command: npm run dev
       volumes: 
         - ./mm-thx-counter:/home/app/mm-thx-counter 
         - /home/app/mm-thx-counter/node_modules
       links: 
         - mongo:mongodb
       ports:
-        - "3000:3000"
+        - "13000:3000"
    nginx:
       image: nginx:alpine
       ports:
-        - "80:80"
+        - "18080:18080"
       volumes:
         - "./conf.d:/etc/nginx/conf.d"
       links:
-        - node-express
+        - node-express:node-express
+        - mongo-express:mongo-express
 volumes: 
    web_db_1: 
       driver: local
